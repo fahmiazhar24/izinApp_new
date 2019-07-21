@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "787011260460",
+    "firebase_url": "https://izinapp-4911f.firebaseio.com",
+    "project_id": "izinapp-4911f",
+    "storage_bucket": "izinapp-4911f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:787011260460:android:b84d2b524bb13623",
+        "android_client_info": {
+          "package_name": "com.example.appperizinan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "787011260460-t3u4bcuq79362l9d5hvbqu7ha71185cj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYWv4e41SLUCdG8c-870zM2vijOk_Xujw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "787011260460-t3u4bcuq79362l9d5hvbqu7ha71185cj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

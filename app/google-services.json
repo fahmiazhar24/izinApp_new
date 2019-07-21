@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "787011260460-5qcji487o7ta3m46iv5s91b99b9ujc2p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.appperizinan",
+            "certificate_hash": "d9be1d400176baef536a71ca51c1ab27055c6812"
+          }
+        },
+        {
           "client_id": "787011260460-t3u4bcuq79362l9d5hvbqu7ha71185cj.apps.googleusercontent.com",
           "client_type": 3
         }

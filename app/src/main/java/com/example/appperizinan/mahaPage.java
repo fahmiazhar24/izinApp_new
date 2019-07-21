@@ -11,7 +11,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class mahaPage extends AppCompatActivity {
 
-    Button logout;
+    Button logout, perizinan;
     FirebaseAuth firebaseAuth;
     FirebaseAuth.AuthStateListener AuthListner;
 
@@ -20,6 +20,7 @@ public class mahaPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maha_page);
         logout = findViewById(R.id.so);
+        perizinan = findViewById(R.id.izin);
 
         firebaseAuth = FirebaseAuth.getInstance();
         AuthListner = new FirebaseAuth.AuthStateListener() {
@@ -31,6 +32,14 @@ public class mahaPage extends AppCompatActivity {
                 }
             }
         };
+        perizinan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pindah = new Intent(mahaPage.this, izinBuat.class);
+                startActivity(pindah);
+            }
+        });
+
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

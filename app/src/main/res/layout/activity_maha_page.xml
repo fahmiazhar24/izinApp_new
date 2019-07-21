@@ -7,19 +7,74 @@
     tools:context=".mahaPage">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="287dp"
+        android:layout_height="554dp"
+        android:layout_marginTop="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="WELCOME"
+            android:textAlignment="center"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Username"
+            android:textAlignment="center"
+            android:textSize="40dp" />
+
+        <Button
+            android:id="@+id/matkul"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/buttonradius"
+            android:text="Mata Kuliah"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/izin"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/buttonradius"
+            android:text="Buat Izin"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/daftar_izin"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/buttonradius"
+            android:text="Daftar Izin"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+
         <Button
             android:id="@+id/so"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="LogOut" />
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/buttonradius"
+            android:text="LogOut"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

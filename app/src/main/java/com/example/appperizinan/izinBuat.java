@@ -41,7 +41,7 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
         msk.setOnClickListener(this);
         nm = findViewById(R.id.us2);
         nik = findViewById(R.id.us3);
-        kls = findViewById(R.id.us4);
+        //kls = findViewById(R.id.us4);
         mt = findViewById(R.id.us5);
 
         al = findViewById(R.id.us7);

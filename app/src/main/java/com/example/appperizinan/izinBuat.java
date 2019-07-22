@@ -26,7 +26,7 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
     Button msk;
     EditText nm, nik, kls, mt, ji, al;
     CheckBox st;
-    String getNIM, getNAMA, getKELAS, getMATKUL, getALASAN;
+    String getNIM, getNAMA, getKELAS, getMATKUL, getJENIS, getALASAN;
     String getUserID;
     Bundle extras;
 
@@ -92,7 +92,9 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
                 if (st.isChecked() == true){
                     getNAMA = nm.getText().toString().trim();
                     getNIM = nik.getText().toString().trim();
+                    getKELAS = spinner.getSelectedItem().toString();
                     getMATKUL = mt.getText().toString().trim();
+                    getJENIS = sphinner.getSelectedItem().toString();
                     getALASAN = al.getText().toString().trim();
 
                     extras = getIntent().getExtras();
@@ -101,7 +103,7 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
                     getReference = firebaseDatabase.getReference();
 
                     getReference.child(getUserID)
-                            .setValue(new dataIzin(getNAMA, getNIM, " ", getMATKUL, " ", getALASAN))
+                            .setValue(new dataIzin(getNAMA, getNIM, getKELAS, getMATKUL, getJENIS, getALASAN))
                             .addOnSuccessListener(this, new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {

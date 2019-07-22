@@ -2,6 +2,7 @@ package com.example.appperizinan;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -97,6 +98,17 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
                     getJENIS = sphinner.getSelectedItem().toString();
                     getALASAN = al.getText().toString().trim();
 
+                    if (TextUtils.isEmpty(getNAMA)) {
+                        nm.setError("Please enter user id");
+                        //Toast.makeText(getApplicationContext(), "Please enter user id", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    if (TextUtils.isEmpty(getNIM)) {
+                        nik.setError("Enter Password");
+                        //Toast.makeText(getApplicationContext(), "Enter Password", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
                     extras = getIntent().getExtras();
 
                     getUserID = extras.getString("IDEN");
@@ -109,6 +121,8 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
                                 public void onSuccess(Void aVoid) {
                                     nm.setText("");
                                     nik.setText("");
+                                    mt.setText("");
+                                    al.setText("");
                                     Toast.makeText(izinBuat.this, "Data Tersimpan", Toast.LENGTH_SHORT).show();
                                 }
                             });

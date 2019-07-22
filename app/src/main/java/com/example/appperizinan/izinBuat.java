@@ -3,9 +3,12 @@ package com.example.appperizinan;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -14,9 +17,11 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 
-public class izinBuat extends AppCompatActivity implements View.OnClickListener {
+public class izinBuat extends AppCompatActivity implements View.OnClickListener{
     private DatabaseReference getReference;
     private FirebaseDatabase firebaseDatabase;
+
+    Spinner spinner, sphinner;
 
     Button msk;
     EditText nm, nik, kls, mt, ji, al;
@@ -42,7 +47,41 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener 
         al = findViewById(R.id.us7);
         st = findViewById(R.id.chkSetuju);
 
+        sphinner = findViewById(R.id.spinner2);
+        spinner = findViewById(R.id.spinner1);
+
         firebaseDatabase = FirebaseDatabase.getInstance();
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.costom_izin, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        //spinner.setOnItemClickListener(this);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                //Toast.makeText(getBaseContext(),parent.getItemAtPosition(position)+ "", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this,R.array.costom_kelas, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sphinner.setAdapter(adapter1);
+        sphinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
     }
 
@@ -75,4 +114,14 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener 
         }
     }
 
+    //@Override
+    //public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+      //  String text = parent.getItemAtPosition(position).toString();
+    //    Toast.makeText(parent.getContext(), text, Toast.LENGTH_SHORT).show();
+    //}
+
+    //@Override
+    //public void onNothingSelected(AdapterView<?> parent) {
+
+    //}
 }

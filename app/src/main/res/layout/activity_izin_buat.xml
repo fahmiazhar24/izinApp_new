@@ -74,7 +74,7 @@
                 android:background="@drawable/txtbox"
                 android:fontFamily="GeosansLight"
                 android:hint="masukan nim"
-                android:inputType="text"
+                android:inputType="numberDecimal"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="20dp" />
@@ -85,6 +85,15 @@
                 android:layout_height="wrap_content"
                 android:text="KELAS"
                 android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/spinner2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <EditText
                 android:id="@+id/us4"
@@ -127,9 +136,13 @@
                 android:textSize="20sp" />
 
             <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:id="@+id/spinner1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
 
             <TextView
                 android:id="@+id/textView9"

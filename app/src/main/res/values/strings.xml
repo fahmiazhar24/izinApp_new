@@ -9,4 +9,18 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    
+    <string-array name="costom_izin">
+        <item>Sakit</item>
+        <item>Acara Keluarga</item>
+        <item>Acara Mendadak</item>
+    </string-array>
+
+    <string-array name="costom_kelas">
+        <item>Kelas A</item>
+        <item>Kelas B</item>
+        <item>Kelas C</item>
+        <item>Kelas D</item>
+        <item>Kelas E</item>
+    </string-array>
 </resources>

@@ -123,7 +123,7 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
                     getUserID = extras.getString("IDEN");
                     getReference = firebaseDatabase.getReference();
 
-                    getReference.child("Mahasiswa").child(getUserID).push()
+                    getReference.child("Mahasiswa").child(getUserID).child(getJENIS).push()
                             .setValue(new dataIzin(getNAMA, getNIM, getKELAS, getMATKUL, getJENIS, getALASAN))
                             .addOnSuccessListener(this, new OnSuccessListener<Void>() {
                                 @Override

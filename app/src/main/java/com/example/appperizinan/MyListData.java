@@ -1,5 +1,6 @@
 package com.example.appperizinan;
 
+import android.content.Intent;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +8,9 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,16 +29,17 @@ import java.util.ArrayList;
 
 public class MyListData extends AppCompatActivity {
 
-    //Deklarasi Variable untuk RecyclerView
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
-    //Deklarasi Variable Database Reference dan ArrayList dengan Parameter Class Model kita.
     private DatabaseReference reference;
     private ArrayList<dataIzin> dataMahasiswa;
 
     private FirebaseAuth auth;
+
+    Bundle extras;
+    String getJENIS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,18 +47,43 @@ public class MyListData extends AppCompatActivity {
         setContentView(R.layout.activity_my_list_data);
 
         recyclerView = findViewById(R.id.datalist);
-        getSupportActionBar().setTitle("Data Mahasiswa");
+        getSupportActionBar().setTitle("Data Izin" + getJENIS);
         auth = FirebaseAuth.getInstance();
         MyRecyclerView();
-        GetData();
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.optionmenu, menu);
+        //getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId()== R.id.sakit){
+            getJENIS = "Sakit";
+            GetData();
+        } else if (item.getItemId() == R.id.keluarga) {
+            getJENIS = "Acara Keluarga";
+            GetData();
+        } else if (item.getItemId() == R.id.mendadak) {
+            getJENIS = "Acara Mendadak";
+            GetData();
+        }
+
+        return true;
     }
 
     //Berisi baris kode untuk mengambil data dari Database dan menampilkannya kedalam Adapter
     private void GetData(){
         Toast.makeText(getApplicationContext(),"Mohon Tunggu Sebentar...", Toast.LENGTH_LONG).show();
-        //Mendapatkan Referensi Database
+
         reference = FirebaseDatabase.getInstance().getReference();
-        reference.child("Admin").child(auth.getUid()).child("Mahasiswa")
+        reference.child("Mahasiswa").child(auth.getUid()).child(getJENIS)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {

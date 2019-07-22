@@ -135,6 +135,8 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
                                     al.setText("");
                                     Intent yok = new Intent(izinBuat.this, mahaPage.class);
                                     startActivity(yok);
+                                    Intent data = new Intent(izinBuat.this, MyListData.class);
+                                    data.putExtra("data", getJENIS);
                                     Toast.makeText(izinBuat.this, "Data Tersimpan", Toast.LENGTH_SHORT).show();
                                 }
                             });

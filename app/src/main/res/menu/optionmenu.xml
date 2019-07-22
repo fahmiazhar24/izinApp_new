@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/sakit"
+        android:title="Sakit"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/keluarga"
+        android:title="Acara Keluarga"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/mendadak"
+        android:title="Acara Mendadak"
+        app:showAsAction="never"/>
+</menu>

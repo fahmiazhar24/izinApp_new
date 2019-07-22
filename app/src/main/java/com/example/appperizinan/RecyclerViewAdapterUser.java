@@ -15,13 +15,13 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
+public class RecyclerViewAdapterUser extends RecyclerView.Adapter<RecyclerViewAdapterUser.ViewHolder>{
     //Deklarasi Variable
     private ArrayList<dataIzin> listMahasiswa;
     private Context context;
 
     //Membuat Konstruktor, untuk menerima input dari Database
-    public RecyclerViewAdapter(ArrayList<dataIzin> listMahasiswa, Context context) {
+    public RecyclerViewAdapterUser(ArrayList<dataIzin> listMahasiswa, Context context) {
         this.listMahasiswa = listMahasiswa;
         this.context = context;
     }
@@ -48,7 +48,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerViewAdapterUser.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //Membuat View untuk Menyiapkan dan Memasang Layout yang Akan digunakan pada RecyclerView
         View V = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_design, parent, false);
         return new ViewHolder(V);
@@ -56,7 +56,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @SuppressLint("SetTextI18n")
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(RecyclerViewAdapterUser.ViewHolder holder, final int position) {
         //Mengambil Nilai/Value yenag terdapat pada RecyclerView berdasarkan Posisi Tertentu
         final String Status = listMahasiswa.get(position).getStatus();
         final String Data = listMahasiswa.get(position).getData();
@@ -81,33 +81,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public boolean onLongClick(final View view) {
 
-                final String[] action = {"Update", "Delete"};
-                AlertDialog.Builder alert = new AlertDialog.Builder(view.getContext());
-                alert.setItems(action,  new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int i) {
-                        switch (i){
-                            case 0:
-                        /*
-                          Berpindah Activity pada halaman layout updateData
-                          dan mengambil data pada listMahasiswa, berdasarkan posisinya
-                          untuk dikirim pada activity selanjutnya
-                        */
-                                Bundle bundle = new Bundle();
-                                bundle.putString("dataSTATUS", listMahasiswa.get(position).getStatus());
-                                bundle.putString("getPrimaryKey", listMahasiswa.get(position).getKey());
-                                Intent intent = new Intent(view.getContext(), terimaIzin.class);
-                                intent.putExtras(bundle);
-                                context.startActivity(intent);
-                                break;
-                            case 1:
-                                //Pembahasan selanjutnya mengenai fungsi Delete
-                                break;
-                        }
-                    }
-                });
-                alert.create();
-                alert.show();
                 return true;
             }
         });
@@ -118,5 +91,4 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         //Menghitung Ukuran/Jumlah Data Yang Akan Ditampilkan Pada RecyclerView
         return listMahasiswa.size();
     }
-
 }

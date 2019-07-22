@@ -26,10 +26,11 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
     Spinner spinner, sphinner;
 
     Button msk;
-    EditText nm, nik, kls, mt, ji, al, datee;
+    EditText nm, nik, mt, al, datee;
     CheckBox st;
     String getDATE, getNIM, getNAMA, getKELAS, getMATKUL, getJENIS, getALASAN;
     String getUserID;
+    //String getSTATUS = "BELUM ADA STATUS";
     Bundle extras;
 
 
@@ -132,7 +133,7 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
                     getReference = firebaseDatabase.getReference();
 
                     getReference.child("Mahasiswa").child(getUserID).child(getJENIS).push()
-                            .setValue(new dataIzin(getDATE, getNAMA, getNIM, getKELAS, getMATKUL, getJENIS, getALASAN))
+                            .setValue(new dataIzin("BELUM ADA STATUS", getDATE, getNAMA, getNIM, getKELAS, getMATKUL, getJENIS, getALASAN))
                             .addOnSuccessListener(this, new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
@@ -149,7 +150,7 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
                                 }
                             });
                     getReference.child("Admin").child(getJENIS).push()
-                            .setValue(new dataIzin(getDATE, getNAMA, getNIM, getKELAS, getMATKUL, getJENIS, getALASAN))
+                            .setValue(new dataIzin("BELUM ADA STATUS", getDATE, getNAMA, getNIM, getKELAS, getMATKUL, getJENIS, getALASAN))
                             .addOnSuccessListener(this, new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {

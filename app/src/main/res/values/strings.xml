@@ -23,4 +23,9 @@
         <item>Kelas D</item>
         <item>Kelas E</item>
     </string-array>
+
+    <string-array name="costom_status">
+        <item>IZIN DITERIMA</item>
+        <item>IZIN DITOLAK</item>
+    </string-array>
 </resources>

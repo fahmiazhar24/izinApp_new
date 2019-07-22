@@ -100,7 +100,7 @@ public class MyListData extends AppCompatActivity {
                         }
 
                         //Inisialisasi Adapter dan data Mahasiswa dalam bentuk Array
-                        adapter = new RecyclerViewAdapter(dataMahasiswa, MyListData.this);
+                        adapter = new RecyclerViewAdapterUser(dataMahasiswa, MyListData.this);
 
                         //Memasang Adapter pada RecyclerView
                         recyclerView.setAdapter(adapter);

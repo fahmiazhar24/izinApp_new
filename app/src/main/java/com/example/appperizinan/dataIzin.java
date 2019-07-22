@@ -10,10 +10,17 @@ public class dataIzin {
     private String alasan;
     private String key;
     private String data;
+    private String status;
 
     public String getKey() { return key; }
 
     public void setKey(String key) { this.key = key; }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) { this.status = status; }
 
     public String getData() {
         return data;
@@ -49,7 +56,8 @@ public class dataIzin {
 
     }
 
-    public dataIzin(String data, String nama, String nim, String kelas, String matkul, String jenisIzin, String alasan){
+    public dataIzin(String status, String data, String nama, String nim, String kelas, String matkul, String jenisIzin, String alasan){
+        this.status = status;
         this.data = data;
         this.nama = nama;
         this.nim = nim;

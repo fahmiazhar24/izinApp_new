@@ -121,6 +121,7 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
                     extras = getIntent().getExtras();
 
                     getUserID = extras.getString("IDEN");
+
                     getReference = firebaseDatabase.getReference();
 
                     getReference.child("Mahasiswa").child(getUserID).child(getJENIS).push()

@@ -74,7 +74,7 @@
                 android:background="@drawable/txtbox"
                 android:fontFamily="GeosansLight"
                 android:hint="masukan nim"
-                android:inputType="text"
+                android:inputType="numberDecimal"
                 android:textAlignment="center"
                 android:textColor="@android:color/black"
                 android:textSize="20dp" />

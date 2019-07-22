@@ -26,7 +26,7 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
     Button msk;
     EditText nm, nik, kls, mt, ji, al;
     CheckBox st;
-    String getNIM, getNAMA, getKELAS, getMATKUL;
+    String getNIM, getNAMA, getKELAS, getMATKUL, getALASAN;
     String getUserID;
     Bundle extras;
 
@@ -42,7 +42,6 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
         nm = findViewById(R.id.us2);
         nik = findViewById(R.id.us3);
         mt = findViewById(R.id.us5);
-
         al = findViewById(R.id.us7);
         st = findViewById(R.id.chkSetuju);
 
@@ -89,25 +88,31 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.confirmIzin:
-                getNAMA = nm.getText().toString().trim();
-                getNIM = nik.getText().toString().trim();
-                getKELAS = mt.getText().toString().trim();
 
-                extras = getIntent().getExtras();
+                if (st.isChecked() == true){
+                    getNAMA = nm.getText().toString().trim();
+                    getNIM = nik.getText().toString().trim();
+                    getMATKUL = mt.getText().toString().trim();
+                    getALASAN = al.getText().toString().trim();
 
-                getUserID = extras.getString("IDEN");
-                getReference = firebaseDatabase.getReference();
+                    extras = getIntent().getExtras();
 
-                getReference.child(getUserID)
-                        .setValue(new dataIzin(getNAMA, getNIM))
-                        .addOnSuccessListener(this, new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        nm.setText("");
-                        nik.setText("");
-                        Toast.makeText(izinBuat.this, "Data Tersimpan", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                    getUserID = extras.getString("IDEN");
+                    getReference = firebaseDatabase.getReference();
+
+                    getReference.child(getUserID)
+                            .setValue(new dataIzin(getNAMA, getNIM, " ", getMATKUL, " ", getALASAN))
+                            .addOnSuccessListener(this, new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    nm.setText("");
+                                    nik.setText("");
+                                    Toast.makeText(izinBuat.this, "Data Tersimpan", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                }else {
+                    Toast.makeText(izinBuat.this, "Anda Belum Menyetujuinya", Toast.LENGTH_SHORT).show();
+                }
                 break;
         }
     }

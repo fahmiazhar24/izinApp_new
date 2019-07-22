@@ -94,9 +94,9 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
                 if (st.isChecked() == true){
                     getNAMA = nm.getText().toString().trim();
                     getNIM = nik.getText().toString().trim();
-                    getKELAS = spinner.getSelectedItem().toString();
+                    getKELAS = sphinner.getSelectedItem().toString();
                     getMATKUL = mt.getText().toString().trim();
-                    getJENIS = sphinner.getSelectedItem().toString();
+                    getJENIS = spinner.getSelectedItem().toString();
                     getALASAN = al.getText().toString().trim();
 
                     if (TextUtils.isEmpty(getNAMA)) {

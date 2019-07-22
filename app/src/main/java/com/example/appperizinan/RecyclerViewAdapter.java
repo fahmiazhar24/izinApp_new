@@ -66,9 +66,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.NIM.setText("NIM: "+NIM);
         holder.Nama.setText("Nama: "+Nama);
         holder.Kelas.setText("Kelas: "+Kelas);
-        holder.MatKuliah.setText("Kelas: "+MatKuliah);
-        holder.JenisIzin.setText("Kelas: "+JenisIzin);
-        holder.Alasan.setText("Kelas: "+Alasan);
+        holder.MatKuliah.setText("Mata Kuliah: "+MatKuliah);
+        holder.JenisIzin.setText("Jenis Izin: "+JenisIzin);
+        holder.Alasan.setText("Alasan: "+Alasan);
 
         holder.ListItem.setOnLongClickListener(new View.OnLongClickListener() {
             @Override

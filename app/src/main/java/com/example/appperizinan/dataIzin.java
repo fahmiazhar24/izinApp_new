@@ -9,10 +9,15 @@ public class dataIzin {
     private String jenisIzin;
     private String alasan;
     private String key;
+    private String data;
 
     public String getKey() { return key; }
 
     public void setKey(String key) { this.key = key; }
+
+    public String getData() {
+        return data;
+    }
 
     public String getNama() {
         return nama;
@@ -44,7 +49,8 @@ public class dataIzin {
 
     }
 
-    public dataIzin(String nama, String nim, String kelas, String matkul, String jenisIzin, String alasan){
+    public dataIzin(String data, String nama, String nim, String kelas, String matkul, String jenisIzin, String alasan){
+        this.data = data;
         this.nama = nama;
         this.nim = nim;
         this.kelas = kelas;

@@ -28,12 +28,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     //ViewHolder Digunakan Untuk Menyimpan Referensi Dari View-View
     class ViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView NIM, Nama, Kelas, MatKuliah, JenisIzin, Alasan;
+        private TextView Data, NIM, Nama, Kelas, MatKuliah, JenisIzin, Alasan;
         private LinearLayout ListItem;
 
         ViewHolder(View itemView) {
             super(itemView);
             //Menginisialisasi View-View yang terpasang pada layout RecyclerView kita
+            Data = itemView.findViewById(R.id.data);
             NIM = itemView.findViewById(R.id.nim);
             Nama = itemView.findViewById(R.id.nama);
             Kelas = itemView.findViewById(R.id.kelas);
@@ -55,6 +56,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         //Mengambil Nilai/Value yenag terdapat pada RecyclerView berdasarkan Posisi Tertentu
+        final String Data = listMahasiswa.get(position).getData();
         final String NIM = listMahasiswa.get(position).getNim();
         final String Nama = listMahasiswa.get(position).getNama();
         final String Kelas = listMahasiswa.get(position).getKelas();
@@ -63,6 +65,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         final String Alasan = listMahasiswa.get(position).getAlasan();
 
         //Memasukan Nilai/Value kedalam View (TextView: NIM, Nama, Jurusan)
+        holder.Data.setText("Tanggal: "+Data);
         holder.NIM.setText("NIM: "+NIM);
         holder.Nama.setText("Nama: "+Nama);
         holder.Kelas.setText("Kelas: "+Kelas);

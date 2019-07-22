@@ -26,9 +26,9 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
     Spinner spinner, sphinner;
 
     Button msk;
-    EditText nm, nik, kls, mt, ji, al;
+    EditText nm, nik, kls, mt, ji, al, datee;
     CheckBox st;
-    String getNIM, getNAMA, getKELAS, getMATKUL, getJENIS, getALASAN;
+    String getDATE, getNIM, getNAMA, getKELAS, getMATKUL, getJENIS, getALASAN;
     String getUserID;
     Bundle extras;
 
@@ -41,6 +41,7 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
 
         msk = findViewById(R.id.confirmIzin);
         msk.setOnClickListener(this);
+        datee = findViewById(R.id.us10);
         nm = findViewById(R.id.us2);
         nik = findViewById(R.id.us3);
         mt = findViewById(R.id.us5);
@@ -92,6 +93,7 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
             case R.id.confirmIzin:
 
                 if (st.isChecked() == true){
+                    getDATE = datee.getText().toString().trim();
                     getNAMA = nm.getText().toString().trim();
                     getNIM = nik.getText().toString().trim();
                     getKELAS = sphinner.getSelectedItem().toString();
@@ -99,6 +101,11 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
                     getJENIS = spinner.getSelectedItem().toString();
                     getALASAN = al.getText().toString().trim();
 
+                    if (TextUtils.isEmpty(getDATE)) {
+                        datee.setError("Isi Tanggal terlebih dahulu");
+                        //Toast.makeText(getApplicationContext(), "Please enter user id", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
                     if (TextUtils.isEmpty(getNAMA)) {
                         nm.setError("Isi Nama terlebih dahulu");
                         //Toast.makeText(getApplicationContext(), "Please enter user id", Toast.LENGTH_SHORT).show();
@@ -125,10 +132,11 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
                     getReference = firebaseDatabase.getReference();
 
                     getReference.child("Mahasiswa").child(getUserID).child(getJENIS).push()
-                            .setValue(new dataIzin(getNAMA, getNIM, getKELAS, getMATKUL, getJENIS, getALASAN))
+                            .setValue(new dataIzin(getDATE, getNAMA, getNIM, getKELAS, getMATKUL, getJENIS, getALASAN))
                             .addOnSuccessListener(this, new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
+                                    datee.setText("");
                                     nm.setText("");
                                     nik.setText("");
                                     mt.setText("");
@@ -141,10 +149,11 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
                                 }
                             });
                     getReference.child("Admin").child(getJENIS).push()
-                            .setValue(new dataIzin(getNAMA, getNIM, getKELAS, getMATKUL, getJENIS, getALASAN))
+                            .setValue(new dataIzin(getDATE, getNAMA, getNIM, getKELAS, getMATKUL, getJENIS, getALASAN))
                             .addOnSuccessListener(this, new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
+                                    datee.setText("");
                                     nm.setText("");
                                     nik.setText("");
                                     mt.setText("");

@@ -1,5 +1,6 @@
 package com.example.appperizinan;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -99,12 +100,20 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
                     getALASAN = al.getText().toString().trim();
 
                     if (TextUtils.isEmpty(getNAMA)) {
-                        nm.setError("Please enter user id");
+                        nm.setError("Isi Nama terlebih dahulu");
                         //Toast.makeText(getApplicationContext(), "Please enter user id", Toast.LENGTH_SHORT).show();
                         return;
                     }
                     if (TextUtils.isEmpty(getNIM)) {
-                        nik.setError("Enter Password");
+                        nik.setError("Isi NIM terlebih dahulu");
+                        //Toast.makeText(getApplicationContext(), "Enter Password", Toast.LENGTH_SHORT).show();
+                        return;
+                    }if (TextUtils.isEmpty(getMATKUL)) {
+                        mt.setError("Isi Nama MATKUL");
+                        //Toast.makeText(getApplicationContext(), "Enter Password", Toast.LENGTH_SHORT).show();
+                        return;
+                    }if (TextUtils.isEmpty(getALASAN)) {
+                        al.setError("Alasan Tidak boleh Kosong");
                         //Toast.makeText(getApplicationContext(), "Enter Password", Toast.LENGTH_SHORT).show();
                         return;
                     }
@@ -123,6 +132,8 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
                                     nik.setText("");
                                     mt.setText("");
                                     al.setText("");
+                                    Intent yok = new Intent(izinBuat.this, mahaPage.class);
+                                    startActivity(yok);
                                     Toast.makeText(izinBuat.this, "Data Tersimpan", Toast.LENGTH_SHORT).show();
                                 }
                             });

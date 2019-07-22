@@ -76,9 +76,9 @@ public class loginMaha extends AppCompatActivity {
                                 if (task.isSuccessful()) {
                                     // there was an error
                                     Log.d(TAG, "signInWithEmail:success");
-                                    Intent intent = new Intent(loginMaha.this, mahaPage.class);
+                                    //Intent intent = new Intent(loginMaha.this, mahaPage.class);
                                     //intent.putExtra("ID", getUserID);
-                                    startActivity(intent);
+                                    //startActivity(intent);
                                     finish();
                                 } else {
                                     Log.d(TAG, "singInWithEmail:Fail");
@@ -94,9 +94,9 @@ public class loginMaha extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() != null) {
-                    Intent i = new Intent(loginMaha.this, mahaPage.class);
-                    startActivity(i);
-                    //startActivity(new Intent(loginMaha.this, mahaPage.class));
+//                    Intent i = new Intent(loginMaha.this, mahaPage.class);
+//                    startActivity(i);
+                    startActivity(new Intent(loginMaha.this, mahaPage.class));
                 }
             }
         };

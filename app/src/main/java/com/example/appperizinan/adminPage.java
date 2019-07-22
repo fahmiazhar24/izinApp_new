@@ -21,7 +21,7 @@ public class adminPage extends AppCompatActivity {
         daftIzin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent daftar = new Intent(adminPage.this, daftarIzinAdmin.class);
+                Intent daftar = new Intent(adminPage.this, MyListData.class);
                 startActivity(daftar);
             }
         });

@@ -8,6 +8,11 @@ public class dataIzin {
     private String matkul;
     private String jenisIzin;
     private String alasan;
+    private String key;
+
+    public String getKey() { return key; }
+
+    public void setKey(String key) { this.key = key; }
 
     public String getNama() {
         return nama;

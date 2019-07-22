@@ -140,6 +140,23 @@ public class izinBuat extends AppCompatActivity implements View.OnClickListener{
                                     Toast.makeText(izinBuat.this, "Data Tersimpan", Toast.LENGTH_SHORT).show();
                                 }
                             });
+                    getReference.child("Admin").child(getJENIS).push()
+                            .setValue(new dataIzin(getNAMA, getNIM, getKELAS, getMATKUL, getJENIS, getALASAN))
+                            .addOnSuccessListener(this, new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    nm.setText("");
+                                    nik.setText("");
+                                    mt.setText("");
+                                    al.setText("");
+                                    Intent yok = new Intent(izinBuat.this, mahaPage.class);
+                                    startActivity(yok);
+                                    Intent data = new Intent(izinBuat.this, MyListData.class);
+                                    data.putExtra("data", getJENIS);
+                                    Toast.makeText(izinBuat.this, "Data Tersimpan", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
                 }else {
                     Toast.makeText(izinBuat.this, "Anda Belum Menyetujuinya", Toast.LENGTH_SHORT).show();
                 }

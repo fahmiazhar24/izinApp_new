@@ -1,6 +1,5 @@
 package com.example.appperizinan;
 
-import android.content.Intent;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,14 +19,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import com.example.appperizinan.R;
-import com.example.appperizinan.RecyclerViewAdapter;
-import com.example.appperizinan.dataIzin;
-
 import java.util.ArrayList;
 
-
-public class MyListData extends AppCompatActivity {
+public class MyListDataAdmin extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
@@ -38,20 +32,18 @@ public class MyListData extends AppCompatActivity {
 
     private FirebaseAuth auth;
 
-    Bundle extras;
     String getJENIS = "Sakit";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_list_data);
+        setContentView(R.layout.activity_my_list_data_admin);
 
         recyclerView = findViewById(R.id.datalist);
         getSupportActionBar().setTitle("Data Izin");
         auth = FirebaseAuth.getInstance();
         MyRecyclerView();
         GetData();
-
     }
 
     @Override
@@ -83,7 +75,7 @@ public class MyListData extends AppCompatActivity {
         Toast.makeText(getApplicationContext(),"Mohon Tunggu Sebentar...", Toast.LENGTH_LONG).show();
 
         reference = FirebaseDatabase.getInstance().getReference();
-        reference.child("Mahasiswa").child(auth.getUid()).child(getJENIS)
+        reference.child("Admin").child(getJENIS)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -100,7 +92,7 @@ public class MyListData extends AppCompatActivity {
                         }
 
                         //Inisialisasi Adapter dan data Mahasiswa dalam bentuk Array
-                        adapter = new RecyclerViewAdapter(dataMahasiswa, MyListData.this);
+                        adapter = new RecyclerViewAdapter(dataMahasiswa, MyListDataAdmin.this);
 
                         //Memasang Adapter pada RecyclerView
                         recyclerView.setAdapter(adapter);
@@ -134,4 +126,6 @@ public class MyListData extends AppCompatActivity {
         recyclerView.addItemDecoration(itemDecoration);
 
     }
+
+
 }

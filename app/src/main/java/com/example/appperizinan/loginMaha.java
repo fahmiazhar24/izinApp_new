@@ -26,6 +26,7 @@ public class loginMaha extends AppCompatActivity {
     FirebaseAuth firebaseAuth;
     ProgressBar progressBar;
     FirebaseAuth.AuthStateListener AuthListner;
+    String getUserID = " ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,11 @@ public class loginMaha extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 
         if (firebaseAuth.getCurrentUser() != null) {
-            startActivity(new Intent(loginMaha.this, mahaPage.class));
+            //startActivity(new Intent(loginMaha.this, mahaPage.class));
+            getUserID = firebaseAuth.getCurrentUser().getUid();
+            Intent intent = new Intent(loginMaha.this, mahaPage.class);
+            intent.putExtra("ID", getUserID);
+            startActivity(intent);
             finish();
         }
 
@@ -45,6 +50,7 @@ public class loginMaha extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
 
         firebaseAuth = FirebaseAuth.getInstance();
+
 
         lg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +77,7 @@ public class loginMaha extends AppCompatActivity {
                                     // there was an error
                                     Log.d(TAG, "signInWithEmail:success");
                                     Intent intent = new Intent(loginMaha.this, mahaPage.class);
+                                    //intent.putExtra("ID", getUserID);
                                     startActivity(intent);
                                     finish();
                                 } else {
@@ -87,7 +94,9 @@ public class loginMaha extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() != null) {
-                    startActivity(new Intent(loginMaha.this, mahaPage.class));
+                    Intent i = new Intent(loginMaha.this, mahaPage.class);
+                    startActivity(i);
+                    //startActivity(new Intent(loginMaha.this, mahaPage.class));
                 }
             }
         };

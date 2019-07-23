@@ -44,17 +44,6 @@
             android:textSize="20dp" />
 
         <Button
-            android:id="@+id/terima_izin"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/buttonradius"
-            android:text="TERIMA IZIN"
-            android:textColor="@android:color/white"
-            android:textSize="20dp" />
-
-        <Button
             android:id="@+id/keluar"
             android:layout_width="200dp"
             android:layout_height="wrap_content"

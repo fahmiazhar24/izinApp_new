@@ -20,10 +20,20 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private ArrayList<dataIzinAdmin> listMahasiswaIzin;
     private Context context;
 
+
+    //Membuat Interfece
+    public interface dataListener{
+        void onDeleteData(dataIzinAdmin data, int position);
+    }
+
+    //Deklarasi objek dari Interfece
+    dataListener listener;
+    
     //Membuat Konstruktor, untuk menerima input dari Database
     public RecyclerViewAdapter(ArrayList<dataIzinAdmin> listMahasiswaIzin, Context context) {
         this.listMahasiswaIzin = listMahasiswaIzin;
         this.context = context;
+        listener = (MyListDataAdmin)context;
     }
 
     //ViewHolder Digunakan Untuk Menyimpan Referensi Dari View-View
@@ -103,7 +113,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                                 context.startActivity(intent);
                                 break;
                             case 1:
-
+                                listener.onDeleteData(listMahasiswaIzin.get(position), position);
                                 break;
                         }
                     }

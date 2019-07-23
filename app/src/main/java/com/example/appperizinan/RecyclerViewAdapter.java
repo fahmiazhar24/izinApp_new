@@ -88,11 +88,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     public void onClick(DialogInterface dialog, int i) {
                         switch (i){
                             case 0:
-                        /*
-                          Berpindah Activity pada halaman layout updateData
-                          dan mengambil data pada listMahasiswa, berdasarkan posisinya
-                          untuk dikirim pada activity selanjutnya
-                        */
                                 Bundle bundle = new Bundle();
                                 bundle.putString("dataSTATUS", listMahasiswaIzin.get(position).getStatus());
                                 bundle.putString("dataTANGGAL", listMahasiswaIzin.get(position).getDate());
@@ -108,7 +103,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                                 context.startActivity(intent);
                                 break;
                             case 1:
-
+                                
                                 break;
                         }
                     }

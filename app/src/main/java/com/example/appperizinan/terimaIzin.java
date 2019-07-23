@@ -119,18 +119,28 @@ public class terimaIzin extends AppCompatActivity {
     //Proses Update data yang sudah ditentukan
     private void updateMahasiswa(dataIzinAdmin mahasiswa){
         String getKey = getIntent().getExtras().getString("getPrimaryKey");
+        String get = getIntent().getExtras().getString("dataJENIS");
+//        String x = " ";
+//        if (get == "Sakit"){
+//            x = "Sakit";
+//        } else if(get == "Acara Keluarga"){
+//            x = "Acara Keluarga";
+//        }else if(get == "Acara Mendadak"){
+//            x = "Acara Mendadak";
+//        }
         database.child("Admin")
-                .child("Sakit")
+                .child(get)
                 .child(getKey)
                 .setValue(mahasiswa)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
                         statustxt.setText("");
-                        Intent i = new Intent(terimaIzin.this, MyListDataAdmin.class);
+                        //Intent i = new Intent(terimaIzin.this, MyListDataAdmin.class);
                         Toast.makeText(terimaIzin.this, "Data Berhasil diubah", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 });
+
     }
 }

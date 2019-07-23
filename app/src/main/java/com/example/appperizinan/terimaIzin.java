@@ -53,9 +53,10 @@ public class terimaIzin extends AppCompatActivity {
                       Menjalankan proses update data.
                       Method Setter digunakan untuk mendapakan data baru yang diinputkan User.
                     */
-                    dataIzin setMahasiswa = new dataIzin();
-                    setMahasiswa.setStatus(statustxt.getText().toString());
-                    updateMahasiswa(setMahasiswa);
+
+                    dataIzinAdmin setIzin = new dataIzinAdmin();
+                    setIzin.setStatus(statustxt.getText().toString());
+                    updateMahasiswa(setIzin);
                 }
             }
         });
@@ -74,7 +75,7 @@ public class terimaIzin extends AppCompatActivity {
     }
 
     //Proses Update data yang sudah ditentukan
-    private void updateMahasiswa(dataIzin mahasiswa){
+    private void updateMahasiswa(dataIzinAdmin mahasiswa){
         String getKey = getIntent().getExtras().getString("getPrimaryKey");
         database.child("Mahasiswa")
                 .child("Acara Mendadak")

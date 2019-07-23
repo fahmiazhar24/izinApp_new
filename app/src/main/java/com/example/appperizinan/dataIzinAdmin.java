@@ -1,7 +1,6 @@
 package com.example.appperizinan;
 
-//@IgnoreExtraProperties
-public class dataIzin {
+public class dataIzinAdmin {
     private String nama;
     private String nim;
     private String kelas;
@@ -10,10 +9,17 @@ public class dataIzin {
     private String alasan;
     private String key;
     private String date;
+    private String status;
 
     public String getKey() { return key; }
 
     public void setKey(String key) { this.key = key; }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) { this.status = status; }
 
     public String getDate() {
         return date;
@@ -45,11 +51,12 @@ public class dataIzin {
 
 
 
-    public dataIzin(){
+    public dataIzinAdmin(){
 
     }
 
-    public dataIzin(String date, String nama, String nim, String kelas, String matkul, String jenisIzin, String alasan){
+    public dataIzinAdmin(String status, String date, String nama, String nim, String kelas, String matkul, String jenisIzin, String alasan){
+        this.status = status;
         this.date = date;
         this.nama = nama;
         this.nim = nim;
@@ -59,5 +66,3 @@ public class dataIzin {
         this.alasan = alasan;
     }
 }
-
-

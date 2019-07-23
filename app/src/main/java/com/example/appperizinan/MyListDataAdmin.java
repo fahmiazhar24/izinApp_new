@@ -28,7 +28,7 @@ public class MyListDataAdmin extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutManager;
 
     private DatabaseReference reference;
-    private ArrayList<dataIzin> dataMahasiswa;
+    private ArrayList<dataIzinAdmin> dataMahasiswa;
 
     private FirebaseAuth auth;
 
@@ -84,7 +84,7 @@ public class MyListDataAdmin extends AppCompatActivity {
 
                         for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                             //Mapping data pada DataSnapshot ke dalam objek mahasiswa
-                            dataIzin mahasiswa = snapshot.getValue(dataIzin.class);
+                            dataIzinAdmin mahasiswa = snapshot.getValue(dataIzinAdmin.class);
 
                             //Mengambil Primary Key, digunakan untuk proses Update dan Delete
                             mahasiswa.setKey(snapshot.getKey());
@@ -102,11 +102,7 @@ public class MyListDataAdmin extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-              /*
-                Kode ini akan dijalankan ketika ada error dan
-                pengambilan data error tersebut lalu memprint error nya
-                ke LogCat
-               */
+
                         Toast.makeText(getApplicationContext(),"Data Gagal Dimuat", Toast.LENGTH_LONG).show();
                         Log.e("MyListActivity", databaseError.getDetails()+" "+databaseError.getMessage());
                     }

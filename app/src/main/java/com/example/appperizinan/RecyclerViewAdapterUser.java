@@ -29,13 +29,12 @@ public class RecyclerViewAdapterUser extends RecyclerView.Adapter<RecyclerViewAd
     //ViewHolder Digunakan Untuk Menyimpan Referensi Dari View-View
     class ViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView Status, Date, NIM, Nama, Kelas, MatKuliah, JenisIzin, Alasan;
+        private TextView Date, NIM, Nama, Kelas, MatKuliah, JenisIzin, Alasan;
         private LinearLayout ListItem;
 
         ViewHolder(View itemView) {
             super(itemView);
             //Menginisialisasi View-View yang terpasang pada layout RecyclerView kita
-            Status = itemView.findViewById(R.id.status);
             Date = itemView.findViewById(R.id.date);
             NIM = itemView.findViewById(R.id.nim);
             Nama = itemView.findViewById(R.id.nama);
@@ -58,8 +57,7 @@ public class RecyclerViewAdapterUser extends RecyclerView.Adapter<RecyclerViewAd
     @Override
     public void onBindViewHolder(RecyclerViewAdapterUser.ViewHolder holder, final int position) {
         //Mengambil Nilai/Value yenag terdapat pada RecyclerView berdasarkan Posisi Tertentu
-        final String Status = listMahasiswa.get(position).getStatus();
-        final String Data = listMahasiswa.get(position).getData();
+        final String Date = listMahasiswa.get(position).getDate();
         final String NIM = listMahasiswa.get(position).getNim();
         final String Nama = listMahasiswa.get(position).getNama();
         final String Kelas = listMahasiswa.get(position).getKelas();
@@ -68,8 +66,7 @@ public class RecyclerViewAdapterUser extends RecyclerView.Adapter<RecyclerViewAd
         final String Alasan = listMahasiswa.get(position).getAlasan();
 
         //Memasukan Nilai/Value kedalam View (TextView: NIM, Nama, Jurusan)
-        holder.Status.setText("Status: "+Status);
-        holder.Date.setText("Tanggal: "+Data);
+        holder.Date.setText("Tanggal: "+Date);
         holder.NIM.setText("NIM: "+NIM);
         holder.Nama.setText("Nama: "+Nama);
         holder.Kelas.setText("Kelas: "+Kelas);

@@ -17,12 +17,12 @@ import java.util.ArrayList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
     //Deklarasi Variable
-    private ArrayList<dataIzin> listMahasiswa;
+    private ArrayList<dataIzinAdmin> listMahasiswaIzin;
     private Context context;
 
     //Membuat Konstruktor, untuk menerima input dari Database
-    public RecyclerViewAdapter(ArrayList<dataIzin> listMahasiswa, Context context) {
-        this.listMahasiswa = listMahasiswa;
+    public RecyclerViewAdapter(ArrayList<dataIzinAdmin> listMahasiswaIzin, Context context) {
+        this.listMahasiswaIzin = listMahasiswaIzin;
         this.context = context;
     }
 
@@ -58,14 +58,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         //Mengambil Nilai/Value yenag terdapat pada RecyclerView berdasarkan Posisi Tertentu
-        final String Status = listMahasiswa.get(position).getStatus();
-        final String Data = listMahasiswa.get(position).getData();
-        final String NIM = listMahasiswa.get(position).getNim();
-        final String Nama = listMahasiswa.get(position).getNama();
-        final String Kelas = listMahasiswa.get(position).getKelas();
-        final String MatKuliah = listMahasiswa.get(position).getMatkul();
-        final String JenisIzin = listMahasiswa.get(position).getJenisIzin();
-        final String Alasan = listMahasiswa.get(position).getAlasan();
+        final String Status = listMahasiswaIzin.get(position).getStatus();
+        final String Data = listMahasiswaIzin.get(position).getDate();
+        final String NIM = listMahasiswaIzin.get(position).getNim();
+        final String Nama = listMahasiswaIzin.get(position).getNama();
+        final String Kelas = listMahasiswaIzin.get(position).getKelas();
+        final String MatKuliah = listMahasiswaIzin.get(position).getMatkul();
+        final String JenisIzin = listMahasiswaIzin.get(position).getJenisIzin();
+        final String Alasan = listMahasiswaIzin.get(position).getAlasan();
 
         //Memasukan Nilai/Value kedalam View (TextView: NIM, Nama, Jurusan)
         holder.Status.setText("Status: "+Status);
@@ -94,14 +94,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                           untuk dikirim pada activity selanjutnya
                         */
                                 Bundle bundle = new Bundle();
-                                bundle.putString("dataSTATUS", listMahasiswa.get(position).getStatus());
-                                bundle.putString("getPrimaryKey", listMahasiswa.get(position).getKey());
+                                bundle.putString("dataSTATUS", listMahasiswaIzin.get(position).getStatus());
+                                bundle.putString("getPrimaryKey", listMahasiswaIzin.get(position).getKey());
                                 Intent intent = new Intent(view.getContext(), terimaIzin.class);
                                 intent.putExtras(bundle);
                                 context.startActivity(intent);
                                 break;
                             case 1:
-                                //Pembahasan selanjutnya mengenai fungsi Delete
+
                                 break;
                         }
                     }
@@ -116,7 +116,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public int getItemCount() {
         //Menghitung Ukuran/Jumlah Data Yang Akan Ditampilkan Pada RecyclerView
-        return listMahasiswa.size();
+        return listMahasiswaIzin.size();
     }
 
 }

@@ -12,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class MyListDataAdmin extends AppCompatActivity {
+public class MyListDataAdmin extends AppCompatActivity implements RecyclerViewAdapter.dataListener {
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
@@ -124,4 +125,20 @@ public class MyListDataAdmin extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onDeleteData(dataIzinAdmin data, int position) {
+        String userID = auth.getUid();
+        if(reference != null){
+            reference.child("Admin")
+                    .child(getJENIS)
+                    .child(data.getKey())
+                    .removeValue()
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(MyListDataAdmin.this, "Data Berhasil Dihapus", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        }
+    }
 }

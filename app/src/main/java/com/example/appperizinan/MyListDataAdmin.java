@@ -124,7 +124,6 @@ public class MyListDataAdmin extends AppCompatActivity implements RecyclerViewAd
 
     }
 
-
     @Override
     public void onDeleteData(dataIzinAdmin data, int position) {
         String userID = auth.getUid();
@@ -141,4 +140,10 @@ public class MyListDataAdmin extends AppCompatActivity implements RecyclerViewAd
                     });
         }
     }
+
+
+//    @Override
+//    public void onDeleteData(dataIzinAdmin data, int position) {
+
+//    }
 }

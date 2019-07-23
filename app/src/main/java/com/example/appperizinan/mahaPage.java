@@ -28,6 +28,8 @@ public class mahaPage extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
 
+        extras = getIntent().getExtras();
+
         AuthListner = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -40,8 +42,6 @@ public class mahaPage extends AppCompatActivity {
         perizinan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                extras = getIntent().getExtras();
-
                 getUserID = extras.getString("ID");
                 Intent pindah = new Intent(mahaPage.this, izinBuat.class);
                 pindah.putExtra("IDEN",getUserID);

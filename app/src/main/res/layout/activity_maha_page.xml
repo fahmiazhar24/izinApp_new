@@ -33,13 +33,13 @@
             android:textSize="40dp" />
 
         <Button
-            android:id="@+id/matkul"
+            android:id="@+id/iziku_FIX"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             android:layout_marginTop="40dp"
             android:background="@drawable/buttonradius"
-            android:text="Mata Kuliah"
+            android:text="STATUS IZIN"
             android:textColor="@android:color/white"
             android:textSize="20dp" />
 

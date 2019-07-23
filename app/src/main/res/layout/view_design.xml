@@ -22,7 +22,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Status:" />
+            android:text="Status:"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/date"
@@ -44,8 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="NIM"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/kelas"

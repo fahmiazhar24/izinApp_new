@@ -8,11 +8,6 @@
     android:orientation="vertical"
     tools:context=".terimaIzin">
 
-    <Spinner
-        android:id="@+id/statusUpdate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <EditText
         android:id="@+id/statusku"
         android:layout_width="match_parent"
@@ -20,6 +15,56 @@
         android:ems="10"
         android:hint="STATUS"
         android:inputType="text" />
+
+    <EditText
+        android:id="@+id/tanggal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/nama"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/nim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/kelas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/mata_kuliah"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/jenis_izin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/alasan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text" />
+
     <Button
         android:id="@+id/update"
         android:layout_width="match_parent"

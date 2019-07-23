@@ -16,7 +16,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>{
-    //Deklarasi Variable
+
     private ArrayList<dataIzinAdmin> listMahasiswaIzin;
     private Context context;
 
@@ -95,6 +95,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                         */
                                 Bundle bundle = new Bundle();
                                 bundle.putString("dataSTATUS", listMahasiswaIzin.get(position).getStatus());
+                                bundle.putString("dataTANGGAL", listMahasiswaIzin.get(position).getDate());
+                                bundle.putString("dataNAMA", listMahasiswaIzin.get(position).getNama());
+                                bundle.putString("dataNIM", listMahasiswaIzin.get(position).getNim());
+                                bundle.putString("dataKELAS", listMahasiswaIzin.get(position).getKelas());
+                                bundle.putString("dataMATAKUL", listMahasiswaIzin.get(position).getMatkul());
+                                bundle.putString("dataJENIS", listMahasiswaIzin.get(position).getJenisIzin());
+                                bundle.putString("dataALASAN", listMahasiswaIzin.get(position).getAlasan());
                                 bundle.putString("getPrimaryKey", listMahasiswaIzin.get(position).getKey());
                                 Intent intent = new Intent(view.getContext(), terimaIzin.class);
                                 intent.putExtras(bundle);

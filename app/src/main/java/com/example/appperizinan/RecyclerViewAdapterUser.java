@@ -34,7 +34,7 @@ public class RecyclerViewAdapterUser extends RecyclerView.Adapter<RecyclerViewAd
 
         ViewHolder(View itemView) {
             super(itemView);
-            //Menginisialisasi View-View yang terpasang pada layout RecyclerView kita
+
             Date = itemView.findViewById(R.id.date);
             NIM = itemView.findViewById(R.id.nim);
             Nama = itemView.findViewById(R.id.nama);
@@ -42,14 +42,14 @@ public class RecyclerViewAdapterUser extends RecyclerView.Adapter<RecyclerViewAd
             MatKuliah = itemView.findViewById(R.id.matkul);
             JenisIzin = itemView.findViewById(R.id.jenisIzin);
             Alasan = itemView.findViewById(R.id.alasan);
-            ListItem = itemView.findViewById(R.id.list_item);
+            ListItem = itemView.findViewById(R.id.list_item_user);
         }
     }
 
     @Override
     public RecyclerViewAdapterUser.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         //Membuat View untuk Menyiapkan dan Memasang Layout yang Akan digunakan pada RecyclerView
-        View V = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_design, parent, false);
+        View V = LayoutInflater.from(parent.getContext()).inflate(R.layout.view_design_user, parent, false);
         return new ViewHolder(V);
     }
 
